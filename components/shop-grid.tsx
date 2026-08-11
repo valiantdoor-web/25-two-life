@@ -7,19 +7,28 @@ import { PRODUCTS, type Product } from '@/lib/products'
 
 export function ShopGrid() {
   const [active, setActive] = useState<Product | null>(null)
+  const [shot, setShot] = useState(0)
+
+  const open = (p: Product) => {
+    setActive(p)
+    setShot(0)
+  }
+
+  const gallery = active?.gallery?.length ? active.gallery : active ? [active.img] : []
+  const activeImg = gallery[Math.min(shot, Math.max(gallery.length - 1, 0))]
 
   return (
     <>
       <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-2">
         {PRODUCTS.map((p, i) => (
           <article key={p.slug} className="group relative bg-charcoal" data-reveal>
-            <div className="relative aspect-[4/5] overflow-hidden bg-charcoal">
+            <div className="product-stage relative aspect-[4/5] overflow-hidden">
               <Image
                 src={p.img}
                 alt={p.name}
                 fill
                 sizes="(max-width:640px) 100vw, 50vw"
-                className="object-contain p-10 transition-transform duration-700 ease-out group-hover:scale-[1.04] md:p-16"
+                className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-[1.04] md:p-10"
               />
               <span className="eyebrow absolute left-5 top-5 text-muted-gray">
                 {String(i + 1).padStart(2, '0')}
@@ -31,7 +40,7 @@ export function ShopGrid() {
               )}
               <button
                 type="button"
-                onClick={() => setActive(p)}
+                onClick={() => open(p)}
                 className="btn-ghost eyebrow absolute inset-x-5 bottom-5 flex min-h-[48px] items-center justify-center rounded-sm opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 focus-visible:opacity-100"
               >
                 QUICK VIEW
@@ -76,15 +85,43 @@ export function ShopGrid() {
               </button>
             </div>
 
-            <div className="relative aspect-square bg-charcoal">
+            <div className="product-stage relative aspect-square">
               <Image
-                src={active.img}
-                alt={active.name}
+                key={activeImg}
+                src={activeImg}
+                alt={`${active.name} — view ${shot + 1}`}
                 fill
                 sizes="576px"
-                className="object-contain p-12"
+                className="object-contain p-8 duration-500 animate-in fade-in"
               />
             </div>
+
+            {gallery.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto border-b border-border p-3">
+                {gallery.map((g, i) => (
+                  <button
+                    key={g}
+                    type="button"
+                    aria-label={`View ${i + 1} of ${active.name}`}
+                    aria-pressed={i === shot}
+                    onClick={() => setShot(i)}
+                    className="product-stage relative aspect-square h-16 w-16 shrink-0 overflow-hidden rounded-sm border transition-colors"
+                    style={{
+                      borderColor:
+                        i === shot ? 'var(--orange)' : 'rgba(255,255,255,0.12)',
+                    }}
+                  >
+                    <Image
+                      src={g}
+                      alt=""
+                      fill
+                      sizes="64px"
+                      className="object-contain p-1"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
 
             <div className="flex flex-1 flex-col p-6 md:p-8">
               <h3 className="display text-3xl text-off-white">{active.name}</h3>

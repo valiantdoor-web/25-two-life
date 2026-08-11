@@ -13,6 +13,7 @@ import { Podcast } from '@/components/podcast'
 import { Community } from '@/components/community'
 import { SocialFeed } from '@/components/social-feed'
 import { BrandMarquee } from '@/components/brand-marquee'
+import { BrandGraphics } from '@/components/brand-graphics'
 import { ValuesStrip } from '@/components/values-strip'
 import { SiteFooter } from '@/components/site-footer'
 
@@ -30,6 +31,7 @@ export default function Page() {
         <Journal />
         <ApparelDrop />
         <DetailStrip />
+        <BrandGraphics />
         <ArtistCollab />
         <ArtSection />
         <Podcast />

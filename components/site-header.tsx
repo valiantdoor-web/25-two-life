@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const NAV = [
@@ -43,11 +44,16 @@ export function SiteHeader() {
       }}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 md:px-10 md:py-5">
-        {/* wordmark */}
-        <Link href="/" className="flex items-baseline gap-2" aria-label="25 Two Life home">
-          <span className="display text-xl leading-none text-off-white md:text-2xl">25</span>
-          <span className="font-brush text-lg leading-none text-orange md:text-xl">two</span>
-          <span className="display text-xl leading-none text-off-white md:text-2xl">life</span>
+        {/* wordmark — real 25 Two Life brush lockup */}
+        <Link href="/" className="flex items-center" aria-label="25 Two Life home">
+          <Image
+            src="/images/brand/logo-mark.png"
+            alt="25 Two Life"
+            width={138}
+            height={206}
+            priority
+            className="h-11 w-auto md:h-12"
+          />
         </Link>
 
         {/* desktop nav */}
