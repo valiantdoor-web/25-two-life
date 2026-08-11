@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const NAV = [
   { label: 'STORY', href: '/story' },
@@ -14,15 +15,25 @@ export function SiteFooter() {
   return (
     <footer className="w-full border-t border-border bg-black-raised">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
-        {/* giant wordmark */}
-        <div className="border-b border-border pb-12">
-          <h2
-            className="display leading-[0.8] text-off-white"
-            style={{ fontSize: 'clamp(3.5rem,16vw,13rem)' }}
-          >
-            25 <span className="font-brush text-orange">two</span> life
-          </h2>
-          <p className="eyebrow mt-4 text-muted-gray">More than your sentence.</p>
+        {/* giant wordmark — real 25 Two Life brush lockup */}
+        <div className="flex flex-col items-start gap-6 border-b border-border pb-12 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Image
+              src="/images/brand/logo-hero.png"
+              alt="25 Two Life Streetwear"
+              width={436}
+              height={272}
+              className="h-40 w-auto md:h-56"
+            />
+            <p className="eyebrow mt-4 text-muted-gray">More than your sentence.</p>
+          </div>
+          <Image
+            src="/images/brand/badge.png"
+            alt="Second Chances Change Everything"
+            width={178}
+            height={172}
+            className="h-24 w-auto opacity-80 md:h-28"
+          />
         </div>
 
         {/* link columns */}
