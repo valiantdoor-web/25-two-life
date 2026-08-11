@@ -9,36 +9,19 @@ export function Hero() {
       {/* background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/founder/hilltop.jpeg"
-          alt="The founder of 25 Two Life standing above the city with his arms raised"
+          src="/images/founder/hero-graded.jpg"
+          alt="Johnny, the founder of 25 Two Life, standing above the city with his arms raised"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[68%_center] md:object-[75%_20%]"
-          style={{ filter: 'grayscale(0.35) contrast(1.06) brightness(0.82) saturate(0.85)' }}
+          className="object-cover object-[center_26%]"
         />
-        {/* cinematic grade: darken bright daytime sky into the near-black theme */}
+        {/* left-to-right black gradient keeps the headline legible over the image */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.32) 30%, rgba(10,10,10,0.2) 55%, rgba(10,10,10,0.55) 100%)',
-          }}
-        />
-        {/* warm accent wash to unify with the palette */}
-        <div
-          className="absolute inset-0 mix-blend-soft-light"
-          style={{
-            background:
-              'linear-gradient(120deg, rgba(233,105,25,0.16) 0%, transparent 45%)',
-          }}
-        />
-        {/* left-to-right black gradient + bottom fade */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(90deg, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.78) 34%, rgba(10,10,10,0.28) 64%, rgba(10,10,10,0.5) 100%)',
+              'linear-gradient(90deg, rgba(10,10,10,0.94) 0%, rgba(10,10,10,0.7) 32%, rgba(10,10,10,0.12) 60%, rgba(10,10,10,0.4) 100%)',
           }}
         />
         <div

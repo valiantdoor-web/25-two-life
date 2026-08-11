@@ -15,18 +15,17 @@ export function FounderStory() {
           data-reveal-img
         >
           <Image
-            src="/images/founder/stadium.jpeg"
-            alt="Portrait of the founder"
+            src="/images/founder/portrait-graded.jpg"
+            alt="Portrait of Johnny, the founder of 25 Two Life"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
-            className="object-cover object-[26%_center]"
-            style={{ filter: 'grayscale(0.3) contrast(1.05) brightness(0.86) saturate(0.9)' }}
+            className="object-cover object-[center_top]"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(10,10,10,0.25) 0%, transparent 40%, transparent 55%, rgba(10,10,10,0.72) 100%)',
+                'linear-gradient(180deg, transparent 45%, rgba(10,10,10,0.7) 100%)',
             }}
           />
           <span className="absolute bottom-4 left-4 h-px w-16 rule-orange" />
@@ -73,7 +72,7 @@ export function FounderStory() {
           </div>
 
           <a
-            href="#story"
+            href="/story"
             className="link-underline eyebrow mt-9 inline-flex items-center gap-3 text-off-white"
             data-reveal
           >
