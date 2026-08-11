@@ -16,12 +16,28 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[center_26%]"
         />
+        {/* top-down darkening tames the bright daytime sky into the near-black theme */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 26%, rgba(10,10,10,0.1) 48%, rgba(10,10,10,0.2) 74%, rgba(10,10,10,0.7) 100%)',
+          }}
+        />
         {/* left-to-right black gradient keeps the headline legible over the image */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(10,10,10,0.94) 0%, rgba(10,10,10,0.7) 32%, rgba(10,10,10,0.12) 60%, rgba(10,10,10,0.4) 100%)',
+              'linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.72) 34%, rgba(10,10,10,0.15) 62%, rgba(10,10,10,0.35) 100%)',
+          }}
+        />
+        {/* cinematic vignette */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(120% 90% at 60% 42%, transparent 42%, rgba(10,10,10,0.65) 100%)',
           }}
         />
         <div
