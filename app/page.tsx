@@ -12,6 +12,8 @@ import { ArtSection } from '@/components/art-section'
 import { Podcast } from '@/components/podcast'
 import { Community } from '@/components/community'
 import { SocialFeed } from '@/components/social-feed'
+import { BrandMarquee } from '@/components/brand-marquee'
+import { ValuesStrip } from '@/components/values-strip'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
@@ -22,6 +24,7 @@ export default function Page() {
       <main>
         <Hero />
         <Manifesto />
+        <BrandMarquee />
         <FounderStory />
         <SecondChances />
         <Journal />
@@ -32,6 +35,7 @@ export default function Page() {
         <Podcast />
         <Community />
         <SocialFeed />
+        <ValuesStrip />
       </main>
       <SiteFooter />
     </>

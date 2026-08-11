@@ -30,12 +30,12 @@ export function ValuesStrip() {
             )}
             <div>
               <p className="eyebrow text-off-white">{v.top}</p>
-              <p className="eyebrow mt-1 text-medium-gray">{v.bottom}</p>
+              <p className="eyebrow mt-1 text-gray-ind">{v.bottom}</p>
             </div>
           </div>
         ))}
       </div>
-      <p className="eyebrow mt-12 text-center text-medium-gray">
+      <p className="eyebrow mt-12 text-center text-gray-ind">
         Workwear roots. Street culture edge.{' '}
         <span className="text-orange">Purpose driven.</span>
       </p>

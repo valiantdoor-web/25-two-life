@@ -14,7 +14,7 @@ function Row() {
       {PHRASES.map((p) => (
         <span key={p} className="flex items-center">
           <span
-            className="display whitespace-nowrap px-6 text-industrial-gray"
+            className="display whitespace-nowrap px-6 text-gray-ind"
             style={{ fontSize: 'clamp(1.75rem,4vw,3.25rem)' }}
           >
             {p}
