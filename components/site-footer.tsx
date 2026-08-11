@@ -28,7 +28,7 @@ export function SiteFooter() {
             <p className="eyebrow mt-4 text-muted-gray">More than your sentence.</p>
           </div>
           <Image
-            src="/images/brand/badge.png"
+            src="/images/brand/badge-hero-trim.png"
             alt="Second Chances Change Everything"
             width={178}
             height={172}

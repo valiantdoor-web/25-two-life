@@ -7,10 +7,19 @@ import { PRODUCTS } from '@/lib/products'
 
 export function ApparelDrop() {
   const [index, setIndex] = useState(0)
+  const [shot, setShot] = useState(0)
   const product = PRODUCTS[index]
+  const gallery = product.gallery?.length ? product.gallery : [product.img]
+  const activeImg = gallery[Math.min(shot, gallery.length - 1)]
 
-  const go = (dir: number) =>
+  const go = (dir: number) => {
     setIndex((i) => (i + dir + PRODUCTS.length) % PRODUCTS.length)
+    setShot(0)
+  }
+  const select = (i: number) => {
+    setIndex(i)
+    setShot(0)
+  }
 
   return (
     <section
@@ -36,39 +45,81 @@ export function ApparelDrop() {
               </span>
             </h2>
           </div>
-          <p className="max-w-xs text-pretty text-sm leading-relaxed text-muted-gray" data-reveal>
-            Heavyweight workwear with the story stitched in. Branding that
-            rewards a closer look.
+          <p
+            className="max-w-xs text-pretty text-sm leading-relaxed text-muted-gray"
+            data-reveal
+          >
+            Heavyweight workwear with the story stitched in. Branding that rewards
+            a closer look.
           </p>
         </div>
 
-        <div className="grid items-stretch gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
-          {/* image */}
-          <div className="relative aspect-square bg-charcoal md:aspect-auto">
-            <Image
-              key={product.img}
-              src={product.img}
-              alt={product.name}
-              fill
-              sizes="(max-width:768px) 100vw, 50vw"
-              className="object-contain p-8 md:p-16"
-            />
-            <span className="eyebrow absolute left-5 top-5 text-muted-gray">
-              {String(index + 1).padStart(2, '0')} / {String(PRODUCTS.length).padStart(2, '0')}
-            </span>
+        <div className="grid items-start gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
+          {/* image stage — fixed square so switching products never reflows */}
+          <div className="flex flex-col bg-charcoal">
+            <div className="product-stage relative aspect-square w-full overflow-hidden">
+              <Image
+                key={activeImg}
+                src={activeImg}
+                alt={`${product.name} — view ${shot + 1}`}
+                fill
+                sizes="(max-width:768px) 100vw, 50vw"
+                className="object-contain p-4 duration-500 animate-in fade-in md:p-8"
+                priority={index === 0}
+              />
+              <span className="eyebrow pointer-events-none absolute right-5 top-5 rounded-sm bg-black/50 px-2 py-1 text-muted-gray backdrop-blur-sm">
+                {String(index + 1).padStart(2, '0')} /{' '}
+                {String(PRODUCTS.length).padStart(2, '0')}
+              </span>
+            </div>
+
+            {/* thumbnail strip */}
+            {gallery.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto border-t border-border p-3">
+                {gallery.map((g, i) => (
+                  <button
+                    key={g}
+                    type="button"
+                    aria-label={`View ${i + 1} of ${product.name}`}
+                    aria-pressed={i === shot}
+                    onClick={() => setShot(i)}
+                    className="product-stage relative aspect-square h-16 w-16 shrink-0 overflow-hidden rounded-sm border transition-colors"
+                    style={{
+                      borderColor:
+                        i === shot ? 'var(--orange)' : 'rgba(255,255,255,0.12)',
+                    }}
+                  >
+                    <Image
+                      src={g}
+                      alt=""
+                      fill
+                      sizes="64px"
+                      className="object-contain p-1"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* info */}
           <div className="flex flex-col justify-between gap-10 bg-charcoal p-8 md:p-14">
             <div>
+              <div className="flex items-center gap-3">
+                <span className="eyebrow text-orange">{product.tag}</span>
+                <span className="h-3 w-px bg-border" />
+                <span className="eyebrow text-muted-gray">{product.category}</span>
+              </div>
               <h3
-                className="display text-off-white"
-                style={{ fontSize: 'clamp(2rem,4vw,3.25rem)' }}
+                className="display mt-4 text-off-white"
+                style={{ fontSize: 'clamp(2rem,4vw,3.25rem)', lineHeight: 1.02 }}
               >
                 {product.name}
               </h3>
               <div className="mt-4 flex items-center gap-4">
-                <span className="display text-2xl text-orange">{product.price}</span>
+                <span className="display text-2xl text-orange">
+                  {product.price}
+                </span>
                 <span className="h-4 w-px bg-border" />
                 <span className="eyebrow text-muted-gray">{product.color}</span>
               </div>
@@ -77,7 +128,10 @@ export function ApparelDrop() {
 
               <ul className="space-y-3">
                 {product.details.map((d) => (
-                  <li key={d} className="flex gap-3 text-sm leading-relaxed text-muted-gray">
+                  <li
+                    key={d}
+                    className="flex gap-3 text-sm leading-relaxed text-muted-gray"
+                  >
                     <span className="mt-2 h-1 w-1 shrink-0 bg-orange" />
                     <span className="text-pretty">{d}</span>
                   </li>
@@ -86,25 +140,28 @@ export function ApparelDrop() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <button
-                type="button"
+              <a
+                href="/shop"
                 className="btn-ghost eyebrow flex min-h-[52px] items-center justify-center rounded-sm px-6 py-4"
               >
-                QUICK VIEW
-              </button>
+                VIEW IN SHOP
+              </a>
 
               <div className="flex items-center justify-between border-t border-border pt-6">
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {PRODUCTS.map((p, i) => (
                     <button
-                      key={p.name}
+                      key={p.slug}
                       type="button"
                       aria-label={`Show ${p.name}`}
-                      onClick={() => setIndex(i)}
-                      className="h-1 w-8 transition-colors"
+                      aria-pressed={i === index}
+                      onClick={() => select(i)}
+                      className="h-1 w-6 transition-colors"
                       style={{
                         backgroundColor:
-                          i === index ? 'var(--orange)' : 'rgba(255,255,255,0.18)',
+                          i === index
+                            ? 'var(--orange)'
+                            : 'rgba(255,255,255,0.18)',
                       }}
                     />
                   ))}
