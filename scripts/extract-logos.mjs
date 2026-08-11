@@ -14,7 +14,7 @@ const JOBS = [
   ["board-01", "not-my-past", { left: 960, top: 1096, width: 224, height: 150 }],
   // board-05 (1402x1122) — gold hero wordmark, compact gold mark, PAST MADE ME graphic
   ["board-05", "logo-hero", { left: 46, top: 20, width: 436, height: 272 }],
-  ["board-05", "logo-mark", { left: 40, top: 810, width: 138, height: 206 }],
+  ["board-05", "logo-mark", { left: 42, top: 812, width: 122, height: 188 }],
   ["board-05", "past-made-me", { left: 1148, top: 98, width: 250, height: 306 }],
 ]
 

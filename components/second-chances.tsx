@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { BadgeEmblem } from './badge-emblem'
 
@@ -18,7 +19,13 @@ export function SecondChances() {
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 text-center md:px-10">
         <div className="mx-auto mb-10 w-28 md:w-32" data-reveal>
-          <BadgeEmblem spin className="h-full w-full" />
+          <Image
+            src="/images/brand/badge.png"
+            alt="Second Chances Change Everything — 25 Two Life"
+            width={178}
+            height={172}
+            className="h-full w-full object-contain"
+          />
         </div>
 
         <h2
