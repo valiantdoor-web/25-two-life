@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export function Manifesto() {
   return (
     <section
@@ -9,29 +11,16 @@ export function Manifesto() {
           The Manifesto
         </p>
 
-        <h2 className="display text-off-white">
-          <span
-            className="block text-[clamp(3rem,11vw,9rem)]"
-            data-reveal
-          >
-            They gave me
-          </span>
-          <span
-            className="block text-orange text-[clamp(5rem,20vw,16rem)]"
-            style={{ lineHeight: 0.8 }}
-            data-reveal
-          >
-            25.
-          </span>
-        </h2>
-
-        <p
-          className="font-brush mx-auto mt-6 text-orange"
-          style={{ fontSize: 'clamp(3rem,12vw,8rem)', lineHeight: 0.9 }}
-          data-reveal
-        >
-          I chose life.
-        </p>
+        <div className="mx-auto w-full max-w-[560px]" data-reveal>
+          <Image
+            src="/images/brand/badge-hero-trim.png"
+            alt="Second Chances · 25 Two Life · Change Everything"
+            width={857}
+            height={857}
+            priority
+            className="mx-auto h-auto w-[70vw] max-w-[440px]"
+          />
+        </div>
 
         <div className="mx-auto my-12 h-px w-24 rule-orange" data-reveal-line />
 
