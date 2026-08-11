@@ -9,19 +9,36 @@ export function Hero() {
       {/* background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero.png"
-          alt="The founder of 25 Two Life standing in an industrial warehouse workshop"
+          src="/images/founder/hilltop.jpeg"
+          alt="The founder of 25 Two Life standing above the city with his arms raised"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[70%_center]"
+          className="object-cover object-[68%_center] md:object-[75%_20%]"
+          style={{ filter: 'grayscale(0.35) contrast(1.06) brightness(0.82) saturate(0.85)' }}
+        />
+        {/* cinematic grade: darken bright daytime sky into the near-black theme */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.32) 30%, rgba(10,10,10,0.2) 55%, rgba(10,10,10,0.55) 100%)',
+          }}
+        />
+        {/* warm accent wash to unify with the palette */}
+        <div
+          className="absolute inset-0 mix-blend-soft-light"
+          style={{
+            background:
+              'linear-gradient(120deg, rgba(233,105,25,0.16) 0%, transparent 45%)',
+          }}
         />
         {/* left-to-right black gradient + bottom fade */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.75) 32%, rgba(10,10,10,0.25) 62%, rgba(10,10,10,0.55) 100%)',
+              'linear-gradient(90deg, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.78) 34%, rgba(10,10,10,0.28) 64%, rgba(10,10,10,0.5) 100%)',
           }}
         />
         <div
