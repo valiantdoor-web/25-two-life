@@ -1,4 +1,13 @@
-const NAV = ['STORY', 'JOURNAL', 'SHOP', 'ART', 'PODCAST', 'CONTACT']
+import Link from 'next/link'
+
+const NAV = [
+  { label: 'STORY', href: '/story' },
+  { label: 'JOURNAL', href: '/#journal' },
+  { label: 'SHOP', href: '/shop' },
+  { label: 'ART', href: '/art' },
+  { label: 'PODCAST', href: '/#podcast' },
+  { label: 'CONTACT', href: '/#join' },
+]
 const SOCIAL = ['TikTok', 'Instagram', 'YouTube']
 
 export function SiteFooter() {
@@ -22,13 +31,13 @@ export function SiteFooter() {
             <p className="eyebrow mb-5 text-orange">Explore</p>
             <ul className="space-y-3">
               {NAV.map((n) => (
-                <li key={n}>
-                  <a
-                    href="#top"
+                <li key={n.label}>
+                  <Link
+                    href={n.href}
                     className="link-underline text-sm tracking-wide text-muted-gray transition-colors hover:text-off-white"
                   >
-                    {n}
-                  </a>
+                    {n.label}
+                  </Link>
                 </li>
               ))}
             </ul>

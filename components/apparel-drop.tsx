@@ -166,7 +166,7 @@ export function ApparelDrop() {
 
         <div className="mt-12 flex justify-center" data-reveal>
           <a
-            href="#shop"
+            href="/shop"
             className="btn-orange eyebrow inline-flex min-h-[52px] items-center gap-3 rounded-sm px-10 py-4"
           >
             SHOP DROP 001

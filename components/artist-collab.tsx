@@ -62,7 +62,7 @@ export function ArtistCollab() {
             </p>
 
             <a
-              href="#art"
+              href="/art"
               className="btn-orange eyebrow mt-9 inline-flex min-h-[52px] items-center gap-3 rounded-sm px-8 py-4"
               data-reveal
             >

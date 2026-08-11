@@ -64,7 +64,7 @@ export function ArtSection() {
 
         <div className="mt-12" data-reveal>
           <a
-            href="#art"
+            href="/art"
             className="link-underline eyebrow inline-flex items-center gap-3 text-off-white"
           >
             VIEW THE ART

@@ -1,17 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useActionState } from 'react'
+import { subscribe, type SubscribeState } from '@/app/actions/subscribe'
+
+const initialState: SubscribeState = { status: 'idle', message: '' }
 
 export function Community() {
-  const [email, setEmail] = useState('')
-  const [joined, setJoined] = useState(false)
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email.trim()) return
-    setJoined(true)
-  }
+  const [state, formAction, pending] = useActionState(subscribe, initialState)
+  const joined = state.status === 'success'
 
   return (
     <section id="join" className="relative w-full overflow-hidden border-t border-border">
@@ -68,30 +65,37 @@ export function Community() {
             </p>
           ) : (
             <form
-              onSubmit={onSubmit}
+              action={formAction}
               className="mt-10 flex w-full max-w-lg flex-col gap-3 sm:flex-row"
               data-reveal
             >
+              <input type="hidden" name="source" value="community" />
               <label htmlFor="join-email" className="sr-only">
                 Your email
               </label>
               <input
                 id="join-email"
+                name="email"
                 type="email"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 placeholder="YOUR EMAIL"
                 className="eyebrow min-h-[56px] flex-1 rounded-sm border border-border bg-black/40 px-5 text-off-white outline-none backdrop-blur-sm placeholder:text-muted-gray focus:border-orange"
                 style={{ fontSize: '16px', letterSpacing: '0.1em' }}
               />
               <button
                 type="submit"
-                className="btn-orange eyebrow flex min-h-[56px] items-center justify-center rounded-sm px-10"
+                disabled={pending}
+                className="btn-orange eyebrow flex min-h-[56px] items-center justify-center rounded-sm px-10 disabled:opacity-60"
               >
-                JOIN
+                {pending ? 'JOINING…' : 'JOIN'}
               </button>
             </form>
+          )}
+
+          {state.status === 'error' && (
+            <p className="eyebrow mt-4 text-orange-bright" role="alert">
+              {state.message}
+            </p>
           )}
 
           <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-gray" data-reveal>

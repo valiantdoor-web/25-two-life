@@ -1,15 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
 const NAV = [
-  { label: 'STORY', href: '#story' },
-  { label: 'JOURNAL', href: '#journal' },
-  { label: 'PEOPLE', href: '#people' },
-  { label: 'SHOP', href: '#shop' },
-  { label: 'ART', href: '#art' },
-  { label: 'PODCAST', href: '#podcast' },
+  { label: 'STORY', href: '/story' },
+  { label: 'JOURNAL', href: '/#journal' },
+  { label: 'PEOPLE', href: '/#people' },
+  { label: 'SHOP', href: '/shop' },
+  { label: 'ART', href: '/art' },
+  { label: 'PODCAST', href: '/#podcast' },
 ]
 
 export function SiteHeader() {
@@ -43,33 +44,33 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 md:px-10 md:py-5">
         {/* wordmark */}
-        <a href="#top" className="flex items-baseline gap-2" aria-label="25 Two Life home">
+        <Link href="/" className="flex items-baseline gap-2" aria-label="25 Two Life home">
           <span className="display text-xl leading-none text-off-white md:text-2xl">25</span>
           <span className="font-brush text-lg leading-none text-orange md:text-xl">two</span>
           <span className="display text-xl leading-none text-off-white md:text-2xl">life</span>
-        </a>
+        </Link>
 
         {/* desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               className="link-underline eyebrow text-muted-gray transition-colors hover:text-off-white"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#join"
+          <Link
+            href="/#join"
             className="eyebrow hidden rounded-sm px-4 py-2.5 text-orange transition-colors hover:bg-orange hover:text-black md:inline-block"
             style={{ border: '1px solid var(--border-orange)' }}
           >
             JOIN THE MOVEMENT
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -88,7 +89,7 @@ export function SiteHeader() {
         <div className="fixed inset-0 top-[68px] z-40 flex flex-col bg-background px-5 pb-10 pt-8 lg:hidden">
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {NAV.map((item, i) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
@@ -98,16 +99,16 @@ export function SiteHeader() {
                 <span className="eyebrow text-orange">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-              </a>
+              </Link>
             ))}
           </nav>
-          <a
-            href="#join"
+          <Link
+            href="/#join"
             onClick={() => setOpen(false)}
             className="btn-orange eyebrow mt-8 flex h-14 items-center justify-center rounded-sm"
           >
             JOIN THE MOVEMENT
-          </a>
+          </Link>
           <p className="font-brush mt-8 text-2xl text-orange">i chose life.</p>
         </div>
       )}
