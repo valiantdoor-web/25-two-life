@@ -3,39 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-
-type Product = {
-  name: string
-  price: string
-  color: string
-  img: string
-  details: string[]
-}
-
-const PRODUCTS: Product[] = [
-  {
-    name: 'The Second Chance Jacket',
-    price: '$188',
-    color: 'Black / Charcoal Plaid',
-    img: '/images/product-jacket.png',
-    details: [
-      'Second Chances circular badge, left chest',
-      'Vertical 25 Two Life hem tag',
-      'Brush-script detail toward the rear of the right sleeve',
-    ],
-  },
-  {
-    name: 'The Built Through It Work Pant',
-    price: '$142',
-    color: 'Black — Structured Twill',
-    img: '/images/product-pant.png',
-    details: [
-      'Relaxed straight carpenter cut, utility pockets',
-      '“Built Through It” along the inner rear seam',
-      '“Not my past. My purpose.” — hidden vertical seam detail',
-    ],
-  },
-]
+import { PRODUCTS } from '@/lib/products'
 
 export function ApparelDrop() {
   const [index, setIndex] = useState(0)
