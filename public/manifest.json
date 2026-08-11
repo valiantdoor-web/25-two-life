@@ -1,0 +1,16 @@
+{
+  "name": "25 TWO LIFE",
+  "short_name": "25 TWO LIFE",
+  "description": "More than your sentence. This is your 2nd life.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
