@@ -77,7 +77,7 @@
 
   --font-display: var(--font-anton), 'Impact', sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-script: var(--font-kaushan), cursive;
+  --font-script: var(--font-marker), cursive;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -276,7 +276,7 @@
   }
 }
 .spin-slow {
-  animation: spin-slow 60s linear infinite;
+  animation: spin-slow 28s linear infinite;
 }
 
 @keyframes marquee {
@@ -322,5 +322,13 @@
   }
   [data-reveal-img] img {
     transform: none !important;
+  }
+  /* Keep the ambient, non-jarring loops running even with reduced motion.
+     Class selectors outrank the universal reset above, so these win. */
+  .marquee-track {
+    animation: marquee 38s linear infinite !important;
+  }
+  .spin-slow {
+    animation: spin-slow 28s linear infinite !important;
   }
 }

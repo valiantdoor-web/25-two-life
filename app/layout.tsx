@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Anton, Inter, Kaushan_Script } from 'next/font/google'
+import { Anton, Inter, Permanent_Marker } from 'next/font/google'
 import './globals.css'
 
 const anton = Anton({
@@ -16,10 +16,10 @@ const inter = Inter({
   display: 'swap',
 })
 
-const kaushan = Kaushan_Script({
+const permanentMarker = Permanent_Marker({
   weight: '400',
   subsets: ['latin'],
-  variable: '--font-kaushan',
+  variable: '--font-marker',
   display: 'swap',
 })
 
@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark bg-background ${anton.variable} ${inter.variable} ${kaushan.variable}`}
+      className={`dark bg-background ${anton.variable} ${inter.variable} ${permanentMarker.variable}`}
     >
       <body className="antialiased grain">
         {children}
