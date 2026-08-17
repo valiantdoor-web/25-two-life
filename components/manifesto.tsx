@@ -7,9 +7,7 @@ export function Manifesto() {
       style={{ paddingBlock: 'clamp(6rem,14vw,13rem)' }}
     >
       <div className="mx-auto max-w-4xl text-center">
-        <p className="eyebrow mb-10 text-muted-gray" data-reveal>
-          The Manifesto
-        </p>
+        <p className="eyebrow mb-10 text-muted-gray" data-reveal>The Manifesto</p>
 
         <div className="mx-auto w-full max-w-[560px]" data-reveal>
           <Image
@@ -24,23 +22,14 @@ export function Manifesto() {
 
         <div className="mx-auto my-12 h-px w-24 rule-orange" data-reveal-line />
 
-        <p
-          className="display mx-auto max-w-xl text-xl text-muted-gray md:text-2xl"
-          data-reveal
-        >
-          The sentence ended.
+        <p className="display mx-auto max-w-xl text-xl text-muted-gray md:text-2xl" data-reveal>
+          Accountability first.
           <br />
-          <span className="text-off-white">The story didn&apos;t.</span>
+          <span className="text-off-white">Transformation is what follows.</span>
         </p>
 
-        <p
-          className="mx-auto mt-8 max-w-xl text-pretty text-base leading-relaxed text-muted-gray"
-          data-reveal
-        >
-          The past is part of the perspective — not a limit on the future. What
-          happened is context. What comes next is a choice, made every single
-          day, with discipline, honesty and the refusal to be defined by the
-          worst chapter of a longer book.
+        <p className="mx-auto mt-8 max-w-xl text-pretty text-base leading-relaxed text-muted-gray" data-reveal>
+          The past can explain how a person arrived somewhere without excusing the harm done there. Change means owning your choices, regulating your emotions, changing your behavior and repeating better decisions long enough for them to become a way of life. A second chance is not an eraser. It is an opportunity to live differently.
         </p>
       </div>
     </section>
