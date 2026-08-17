@@ -26,21 +26,21 @@ const permanentMarker = Permanent_Marker({
 export const metadata: Metadata = {
   title: '25 TWO LIFE — More Than Your Sentence',
   description:
-    'They gave me 25. I chose life. 25 TWO LIFE is a lifestyle, streetwear and media brand built on transformation, second chances and the discipline to rebuild.',
+    '25 TWO LIFE is a mission-driven platform built on accountability, personal responsibility, transformation, discipline, service and the long work of rebuilding a life.',
   generator: 'v0.app',
   keywords: [
     '25 TWO LIFE',
     'second chances',
-    'streetwear',
-    'workwear',
+    'accountability',
     'transformation',
     'reentry',
-    'resilience',
+    'personal responsibility',
+    'service',
   ],
   openGraph: {
     title: '25 TWO LIFE — More Than Your Sentence',
     description:
-      'A story of consequence, growth, discipline, art and second chances. This is your 2nd life.',
+      'The name comes from a 25-year firearm enhancement. The mission is about what came after: accountability, growth, discipline and service.',
     type: 'website',
   },
   manifest: '/manifest.json',
