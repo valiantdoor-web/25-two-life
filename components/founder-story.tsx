@@ -35,7 +35,7 @@ export function FounderStory() {
 
           <div className="max-w-xl space-y-4 text-pretty text-base leading-relaxed text-muted-gray">
             <p data-reveal>
-              Johnny Sierra was sentenced to 40 years to life: 15 years to life plus a consecutive 25-year firearm enhancement. The name 25 Two Life comes from that enhancement — not from a claim that the entire sentence was 25 years.
+              Johnny Sierra was sentenced to 40 years to life: 15 years to life plus a consecutive 25-year firearm enhancement. The name 25 Two Life comes from that enhancement, not from a claim that the entire sentence was 25 years.
             </p>
             <p data-reveal>
               The conduct that led to prison caused real harm. The story is not about celebrating incarceration or turning a sentence into an accomplishment. It is about taking responsibility, confronting the thinking and behavior that caused harm, and doing the long work of becoming different.
@@ -50,7 +50,7 @@ export function FounderStory() {
             <ArrowRight className="size-4 text-orange" />
           </a>
 
-          <p className="font-brush mt-8 text-3xl text-muted-gray" data-reveal>— built through it</p>
+          <p className="font-brush mt-8 text-3xl text-muted-gray" data-reveal>built through it</p>
         </div>
       </div>
     </section>
