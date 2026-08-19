@@ -5,7 +5,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { ShopGrid } from '@/components/shop-grid'
 
 export const metadata: Metadata = {
-  title: 'Shop Concepts — 25 Two Life',
+  title: 'Shop Concepts, 25 Two Life',
   description: 'A preview of 25 Two Life apparel concepts. The mission comes first; products will be presented as available only when inventory, pricing and fulfillment are confirmed.',
 }
 
