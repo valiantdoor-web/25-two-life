@@ -11,7 +11,7 @@ const NAV = [
   { label: 'PEOPLE', href: '/#people' },
   { label: 'SHOP', href: '/shop' },
   { label: 'ART', href: '/art' },
-  { label: 'PODCAST', href: '/#podcast' },
+  { label: 'CONVERSATIONS', href: '/#conversations' },
 ]
 
 export function SiteHeader() {
@@ -27,95 +27,41 @@ export function SiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
+    return () => { document.body.style.overflow = '' }
   }, [open])
 
   return (
-    <header
-      className="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
-      style={{
-        backgroundColor: scrolled ? 'rgba(10,10,10,0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(14px)' : 'none',
-        borderBottom: scrolled
-          ? '1px solid rgba(255,255,255,0.10)'
-          : '1px solid transparent',
-      }}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 transition-colors duration-500" style={{ backgroundColor: scrolled ? 'rgba(10,10,10,0.88)' : 'transparent', backdropFilter: scrolled ? 'blur(14px)' : 'none', borderBottom: scrolled ? '1px solid rgba(255,255,255,0.10)' : '1px solid transparent' }}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 md:px-10 md:py-5">
-        {/* wordmark — real 25 Two Life brush lockup */}
         <Link href="/" className="flex items-center" aria-label="25 Two Life home">
-          <Image
-            src="/images/brand/logo-mark.png"
-            alt="25 Two Life"
-            width={138}
-            height={206}
-            priority
-            className="h-11 w-auto md:h-12"
-          />
+          <Image src="/images/brand/logo-mark.png" alt="25 Two Life" width={138} height={206} priority className="h-11 w-auto md:h-12" />
         </Link>
 
-        {/* desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="link-underline eyebrow text-muted-gray transition-colors hover:text-off-white"
-            >
-              {item.label}
-            </Link>
+            <Link key={item.label} href={item.href} className="link-underline eyebrow text-muted-gray transition-colors hover:text-off-white">{item.label}</Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="/#join"
-            className="eyebrow hidden rounded-sm px-4 py-2.5 text-orange transition-colors hover:bg-orange hover:text-black md:inline-block"
-            style={{ border: '1px solid var(--border-orange)' }}
-          >
-            JOIN THE MOVEMENT
-          </Link>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            className="flex size-11 items-center justify-center text-off-white lg:hidden"
-          >
+          <Link href="/#join" className="eyebrow hidden rounded-sm px-4 py-2.5 text-orange transition-colors hover:bg-orange hover:text-black md:inline-block" style={{ border: '1px solid var(--border-orange)' }}>JOIN THE MOVEMENT</Link>
+          <button type="button" onClick={() => setOpen((v) => !v)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} className="flex size-11 items-center justify-center text-off-white lg:hidden">
             {open ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </div>
       </div>
 
-      {/* mobile drawer */}
       {open && (
         <div className="fixed inset-0 top-[68px] z-40 flex flex-col bg-background px-5 pb-10 pt-8 lg:hidden">
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {NAV.map((item, i) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="display flex items-center justify-between border-b border-border py-5 text-4xl text-off-white"
-              >
-                <span>{item.label}</span>
-                <span className="eyebrow text-orange">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+              <Link key={item.label} href={item.href} onClick={() => setOpen(false)} className="display flex items-center justify-between border-b border-border py-5 text-4xl text-off-white">
+                <span>{item.label}</span><span className="eyebrow text-orange">{String(i + 1).padStart(2, '0')}</span>
               </Link>
             ))}
           </nav>
-          <Link
-            href="/#join"
-            onClick={() => setOpen(false)}
-            className="btn-orange eyebrow mt-8 flex h-14 items-center justify-center rounded-sm"
-          >
-            JOIN THE MOVEMENT
-          </Link>
-          <p className="font-brush mt-8 text-2xl text-orange">i chose life.</p>
+          <Link href="/#join" onClick={() => setOpen(false)} className="btn-orange eyebrow mt-8 flex h-14 items-center justify-center rounded-sm">JOIN THE MOVEMENT</Link>
+          <p className="font-brush mt-8 text-2xl text-orange">change is lived.</p>
         </div>
       )}
     </header>
