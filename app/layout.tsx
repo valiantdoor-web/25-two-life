@@ -24,7 +24,7 @@ const permanentMarker = Permanent_Marker({
 })
 
 export const metadata: Metadata = {
-  title: '25 TWO LIFE — More Than Your Sentence',
+  title: '25 TWO LIFE, More Than Your Sentence',
   description:
     '25 TWO LIFE is a mission-driven platform built on accountability, personal responsibility, transformation, discipline, service and the long work of rebuilding a life.',
   generator: 'v0.app',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     'service',
   ],
   openGraph: {
-    title: '25 TWO LIFE — More Than Your Sentence',
+    title: '25 TWO LIFE, More Than Your Sentence',
     description:
       'The name comes from a 25-year firearm enhancement. The mission is about what came after: accountability, growth, discipline and service.',
     type: 'website',
