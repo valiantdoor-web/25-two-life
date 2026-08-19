@@ -11,7 +11,7 @@ export function SecondChances() {
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 text-center md:px-10">
         <div className="mx-auto mb-10 w-28 md:w-32" data-reveal>
-          <Image src="/images/brand/badge-hero-trim.png" alt="Second Chances Change Everything — 25 Two Life" width={178} height={172} className="h-full w-full object-contain" />
+          <Image src="/images/brand/badge-hero-trim.png" alt="Second Chances Change Everything, 25 Two Life" width={178} height={172} className="h-full w-full object-contain" />
         </div>
 
         <h2 className="display mx-auto max-w-4xl text-off-white" style={{ fontSize: 'clamp(2.75rem,8vw,7rem)' }}>
